@@ -37,7 +37,7 @@ export default function ProjectSelect({onFinish}: ProjectSelectProps) {
     });
   };
 
-  const moveFiles = (count: number) => {
+  const moveFiles = () => {
     setFiles(prevFiles => {
       const newFiles = prevFiles.map((file, index) => ({
         ...file,
@@ -57,7 +57,7 @@ export default function ProjectSelect({onFinish}: ProjectSelectProps) {
     const animate = () => {
       moveRollerPositions();
       if (count % 2 === 0) {
-        moveFiles(count);
+        moveFiles();
       }
       count += 1
 

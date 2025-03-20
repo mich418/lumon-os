@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Box from './Box'
 import BoxProgress from './BoxProgress';
 import type {SelectedNumber} from './RefinementNumbers';

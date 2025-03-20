@@ -61,7 +61,6 @@ export default function RefinementNumbers(props: RefinementNumbersProps) {
   const [selected, setSelected] = useState<Number[]>([])
   const [zoom, setZoom] = useState(1)
   const [offset, setOffset] = useState<[number, number]>([0, 0])
-  const [moving, setMoving] = useState(false)
   const container = useRef<HTMLDivElement | null>(null)
   
 
