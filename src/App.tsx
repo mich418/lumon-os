@@ -5,6 +5,8 @@ import ProjectRollerScreen from './components/ProjectRollerScreen'
 import RefinementScreen from './components/RefinementScreen'
 import PrivacyModal from './components/PrivacyModal'
 import HelpModal from './components/HelpModal'
+import SuccessModal from './components/SuccessModal'
+import ScreenSaver from './components/ScreenSaver'
 import './App.scss'
 
 function App() {
@@ -13,6 +15,7 @@ function App() {
   const [showRefinementScreen, setShowRefinementScreen] = useState(false)
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false)
   const [helpModalOpen, setHelpModalOpen] = useState(false)
+  const [successModalOpen, setSuccessModalOpen] = useState(false)
 
   const onLoadingScreenFinish = () => {
     setShowLoadingScreen(false)
@@ -29,7 +32,8 @@ function App() {
       <PixelOverlay />
       { showLoadingScreen && <LoadingScreen onFinish={onLoadingScreenFinish} /> }
       { showProjectRollerScreen && <ProjectRollerScreen onFinish={onProjectSelectFinish} /> }
-      { showRefinementScreen && <RefinementScreen onOpenHelp={() => setHelpModalOpen(true)} /> }
+      { showRefinementScreen && <RefinementScreen onOpenHelp={() => setHelpModalOpen(true)} onProjectCompleted={() => setSuccessModalOpen(true)} /> }
+      { showRefinementScreen && <ScreenSaver /> }
       <PrivacyModal
         isOpen={privacyModalOpen}
         onClose={() => {setPrivacyModalOpen(false)}}
@@ -37,6 +41,9 @@ function App() {
       <HelpModal
         isOpen={helpModalOpen}
         onClose={() => {setHelpModalOpen(false)}}
+      />
+      <SuccessModal
+        isOpen={successModalOpen}
       />
       <div className="app__info app__info--privacy">
         <a href="#" onClick={() => {setPrivacyModalOpen(true)}}>Privacy</a>

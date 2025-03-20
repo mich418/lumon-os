@@ -8,7 +8,8 @@ import { boxAverageProgress, totalAverageProgress } from '../helpers';
 import './RefinementScreen.scss';
 
 type RefinementScreenProps = {
-  onOpenHelp: () => void
+  onOpenHelp: () => void,
+  onProjectCompleted: () => void
 }
 
 export default function RefinementScreen(props: RefinementScreenProps) {
@@ -21,7 +22,12 @@ export default function RefinementScreen(props: RefinementScreenProps) {
 
   useEffect(() => {
     setAvailableBoxes(boxes.filter(box => boxAverageProgress(box) < 100).map(box => box.id))
-    setTotalProgress(totalAverageProgress(boxes))
+    const totalProgress = totalAverageProgress(boxes)
+    setTotalProgress(totalProgress)
+
+    if (totalProgress >= 100) {
+      props.onProjectCompleted()
+    }
   }, [boxes])
 
   const onUpdateBox = (boxData: BoxData) => {

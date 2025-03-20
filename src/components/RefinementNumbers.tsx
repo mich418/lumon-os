@@ -146,10 +146,8 @@ export default function RefinementNumbers(props: RefinementNumbersProps) {
     let nextXOffset = offset[0] + move[0]
     let nextYOffset = offset[1] + move[1]
 
-    console.log(nextXOffset, tileWidth)
 
     if (nextXOffset >= tileWidth) {
-      console.log('left', nextXOffset - tileWidth)
       nextXOffset = nextXOffset - tileWidth
       appendNumbersColumn('left')
     } else if (nextXOffset < -tileWidth) {
@@ -216,23 +214,25 @@ export default function RefinementNumbers(props: RefinementNumbersProps) {
   }
 
   const appendNumbersColumn = (side: 'left' | 'right') => {
-    const newNumbers = numbers.map(row => {
-      if (side === 'left') {
-        return { ...row, numbers: [createNumber(true), ...row.numbers.slice(0, -1)] }
-      } else {
-        return { ...row, numbers: [...row.numbers.slice(1), createNumber(true)] }
-      }
-    })
+    setNumbers((numbers) => {
+      const newNumbers = numbers.map(row => {
+        if (side === 'left') {
+          return { ...row, numbers: [createNumber(true), ...row.numbers.slice(0, -1)] }
+        } else {
+          return { ...row, numbers: [...row.numbers.slice(1), createNumber(true)] }
+        }
+      })
 
-    setNumbers(newNumbers)
+      return newNumbers
+    })
   }
 
   const appendNumbersRow = (side: 'top' | 'bottom') => {
     const length = numbers[0].numbers.length
     if (side === 'top') {
-      setNumbers([createRow(length, true), ...numbers.slice(0, -1)])
+      setNumbers((numbers) => [createRow(length, true), ...numbers.slice(0, -1)])
     } else {
-      setNumbers([...numbers.slice(1), createRow(length, true)])
+      setNumbers((numbers) => [...numbers.slice(1), createRow(length, true)])
     }
   }
 

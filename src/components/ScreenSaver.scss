@@ -4,30 +4,37 @@
   background-color: var(--color-background);
   inset: 0;
 
-  .lumon-logo {
+  &__logo {
     position: absolute;
-    transform: scale(0.6);
-    animation: float 10s infinite;
+    width: 238px;
+    height: 107px;
+    display: block;
+    animation: float 10s linear infinite;
 
     @keyframes float {
       0% {
-        inset: 0 auto auto 10%;
+        top: 0;
+        left: 10%
       }
 
       25% {
-        inset: 10% 0 auto auto;
+        top: 10%;
+        left: calc(100% - 238px)
       }
 
       50% {
-        inset: auto 10% 0 auto;
+        top: calc(100% - 107px);
+        left: calc(50% - 119px)
       }
 
       75% {
-        inset: auto auto 10% 0;
+        top: calc(80% - 107px);
+        left: 0;
       }
 
       100% {
-        inset: 0 auto auto 10%;
+        top: 0;
+        left: 10%
       }
     }
   }

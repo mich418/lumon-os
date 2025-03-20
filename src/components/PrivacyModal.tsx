@@ -6,7 +6,6 @@ type PrivacyModalProps = {
 }
 
 export default function PrivacyModal(props: PrivacyModalProps) {
-  console.log('PrivacyModal')
   return (
     <Modal
       open={props.isOpen}

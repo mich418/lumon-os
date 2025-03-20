@@ -49,7 +49,7 @@ export default function TotalProgress(props: TotalProgressProps) {
           }}
         />
       ))}
-      <span className="total-progress__progress">{`${props.progress}%`}</span>
+      <span className="total-progress__progress">{`${props.progress}% Completed`}</span>
     </div>
   )
 }
