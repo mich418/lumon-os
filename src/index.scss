@@ -1,0 +1,66 @@
+$fontFamilyMainName: 'Outfit';
+$fontFamilyWeights: (
+  Thin: 100,
+  Light: 300,
+  Regular: 400,
+  Medium: 500,
+  SemiBold: 600,
+  Bold: 700,
+  ExtraBold: 800,
+  Black: 900
+);
+
+:root {
+  --color-foreground: #bfe7e1;
+  --color-background: #151a19;
+  --color-factor-WO: #91F5AD;
+  --color-factor-FC: #FFCB47;
+  --color-factor-DR: #af65c4;
+  --color-factor-MA: #47b7bb;
+}
+
+@each $weight, $value in $fontFamilyWeights {
+  @font-face {
+    font-family: '#{$fontFamilyMainName}';
+    font-weight: $value;
+    src: url('/#{$fontFamilyMainName}-#{$weight}.woff2') format('woff2');
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: '#{$fontFamilyMainName}', sans-serif;
+  font-weight: 400;
+  // text-shadow: 0 0 2px var(--color-foreground);
+}
+
+a {
+  color: var(--color-foreground);
+  text-decoration: underline;
+
+  &:visited,
+  &:hover {
+    color: var(--color-foreground);
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+svg.lumon-logo {
+  .fill-background {
+    fill: #fff;
+  }
+
+  .fill-foreground {
+    fill: pink;
+  }
+}

@@ -1,0 +1,90 @@
+.box-statistics {
+  border: 2px solid var(--color-foreground);
+  background: var(--color-background);
+
+  &__header  {
+    padding: 2px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    border: 2px solid var(--color-foreground);
+    margin: 4px auto 0;
+    width: calc(100% - 8px);
+  }
+
+  &__factors {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    padding: 15px 4px 15px 8px;
+    column-gap: 5px;
+    row-gap: 10px;
+  }
+
+  &__factor-name {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+
+    &--WO {
+      color: var(--color-factor-WO);
+    }
+
+    &--FC {
+      color: var(--color-factor-FC);
+    }
+
+    &--DR {
+      color: var(--color-factor-DR);
+    }
+
+    &--MA {
+      color: var(--color-factor-MA);
+    }
+  }
+
+  &__factor-progress {
+    position: relative;
+    border: 2px solid var(--color-foreground);
+
+    span {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      max-width: 100%;
+      background: var(--color-foreground);
+    }
+
+    &--WO {
+      border-color: var(--color-factor-WO);
+
+      span {
+        background: var(--color-factor-WO);
+      }
+    }
+
+    &--FC {
+      border-color: var(--color-factor-FC);
+
+      span {
+        background: var(--color-factor-FC);
+      }
+    }
+
+    &--DR {
+      border-color: var(--color-factor-DR);
+
+      span {
+        background: var(--color-factor-DR);
+      }
+    }
+
+    &--MA {
+      border-color: var(--color-factor-MA);
+
+      span {
+        background: var(--color-factor-MA);
+      }
+    }
+  }
+}

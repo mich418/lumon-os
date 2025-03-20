@@ -1,0 +1,32 @@
+.total-progress {
+  position: absolute;
+  inset: 2px 165px 2px 2px;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  overflow: hidden;
+
+  &__segment {
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0 2px 0 0;
+      background-color: var(--color-foreground);
+    }
+  }
+
+  &__progress {
+    position: absolute;
+    z-index: 2;
+    right: 15px;
+    font-size: 28px;
+    font-weight: 600;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-text-stroke: 4px var(--color-background);
+    paint-order: stroke fill;
+  }
+}

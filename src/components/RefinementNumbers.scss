@@ -1,0 +1,99 @@
+@use "sass:map";
+@use '../helpers';
+
+.refinement-numbers {
+  $root: &;
+
+  overflow: hidden;
+  display: flex;
+  user-select: none;
+  position: relative;
+  z-index: 1;
+
+  &__inner {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__row {
+    display: flex;
+    width: auto;
+    flex-wrap: nowrap;
+    position: relative;
+    //transition: transform .2s;
+  }
+
+  &__number {
+    @extend %refinement-number;
+    opacity: 0;
+    animation: numberFadeIn .5s forwards;
+
+    @keyframes numberFadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    &--no-fade-in {
+      animation: none;
+      opacity: 1;
+    }
+
+    &--hovered,
+    &--selected {
+      @extend %refinement-number-lg;
+    }
+
+    &--around {
+      &:not(#{$root}__number--selected) {
+        @extend %refinement-number-md;
+      }
+    }
+
+    &--animation {
+      $animationPositions: (
+        1: (0: '-3px, -2px', 1: '3px, -2px', 2: '3px, 3', 3: '2px, -2px'),
+        2: (0: '-2px, -1px', 1: '-1px, 2px', 2: '3px, 2px', 3: '-1px, -3px'),
+        3: (0: '-1px, 1px', 1: '2px, 1px', 2: '2px, -3px', 3: '1px, 2px'),
+        4: (0: '1px, 0', 1: '1px, 3px', 2: '-3px, 3px', 3: '1px, -1px'),
+        5: (0: '2px, -1px', 1: '-3px, -1px', 2: '-3px, 1px', 3: '-2px, -3px')
+      );
+
+      @for $i from 1 through 5 {
+        $animationName: numberFloatingAnimation#{$i};
+
+        &-#{$i} {
+          span {
+            animation: #{$animationName} 3s infinite linear;
+
+            @keyframes #{$animationName} {
+              0% {
+                transform: translate(#{map.get(map.get($animationPositions, $i), 0)});
+              }
+
+              25% {
+                transform: translate(#{map.get(map.get($animationPositions, $i), 1)});
+              }
+
+              50% {
+                transform: translate(#{map.get(map.get($animationPositions, $i), 2)});
+              }
+
+              75% {
+                transform: translate(#{map.get(map.get($animationPositions, $i), 3)});
+              }
+
+              100% {
+                transform: translate(#{map.get(map.get($animationPositions, $i), 0)});
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

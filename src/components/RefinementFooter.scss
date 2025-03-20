@@ -1,0 +1,52 @@
+@use '../helpers';
+
+.refinement-footer {
+  background-color: var(--color-background);
+  padding: 19px 0 20px;
+  position: relative;
+  z-index: 2;
+
+  &::after {
+    @extend %double-divider;
+    top: 0;
+    left: 0;
+  }
+
+  &__boxes {
+    padding: 0 40px 10px;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__box {
+    .box {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__range {
+    padding: 10px 40px 0;
+    border-top: 2px solid var(--color-foreground);
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  &__selected-number {
+    @extend %refinement-number;
+    @extend %refinement-number-lg;
+    position: fixed;
+    offset-rotate: 0deg;
+    animation: throw-to-box 1s ease-in-out forwards;
+    z-index: 3;
+
+    @keyframes throw-to-box {
+      to {
+        offset-distance: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+%double-divider {
+  content: '';
+  position: absolute;
+  width: 100%;
+  border: 3px solid var(--color-foreground);
+  border-left: none;
+  border-right: none;
+  height: 9px;
+  box-sizing: border-box;
+}
+
+%refinement-number {
+  display: flex;
+  flex: 1 0 auto;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  overflow: hidden;
+  transition: transform .5s, font-size .5s;
+  cursor: default;
+  line-height: 1;
+}
+
+%refinement-number-md {
+  font-size: 1.3em;
+}
+
+%refinement-number-lg {
+  font-size: 1.7em;
+}

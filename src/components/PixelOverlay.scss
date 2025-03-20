@@ -1,0 +1,33 @@
+.pixel-overlay {
+  // --crt-red: rgb(218, 49, 49);
+  // --crt-green: rgb(112, 159, 115);
+  // --crt-blue: rgb(40, 129, 206);
+
+  // position: fixed;
+  // inset: 0;
+  // z-index: 1000;
+  // pointer-events: none;
+  // mix-blend-mode: multiply;
+
+  // &:before {
+  //   content: "";
+  //   pointer-events: none;
+  //   mix-blend-mode: overlay;
+  //   position: absolute;
+  //   height: 100%;
+  //   width: 100%;
+  //   left: 0;
+  //   top: 0;
+  //   z-index: 1;
+  // }
+
+  // &:before {
+  //   background: repeating-linear-gradient(
+  //     var(--crt-red) 0px,
+  //     var(--crt-green) 2px,
+  //     var(--crt-blue) 4px
+  //   );
+  // }
+  
+  // background: url('/pixel-line.svg') repeat;
+}
