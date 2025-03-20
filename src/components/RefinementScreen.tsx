@@ -7,7 +7,11 @@ import type { BoxData } from '../services';
 import { boxAverageProgress, totalAverageProgress } from '../helpers';
 import './RefinementScreen.scss';
 
-export default function RefinementScreen() {
+type RefinementScreenProps = {
+  onOpenHelp: () => void
+}
+
+export default function RefinementScreen(props: RefinementScreenProps) {
   const [selectedBox, setSelectedBox] = useState<number>(-1)
   const [selectedNumbers, setSelectedNumbers] = useState<SelectedNumber[]>([])
   const [boxes, setBoxes] = useState(boxesService.getBoxesData())
@@ -49,6 +53,7 @@ export default function RefinementScreen() {
     <div className="refinement-screen">
       <RefinementHeader
         totalProgress={totalProgress}
+        onOpenHelp={props.onOpenHelp}
       />
       <RefinementNumbers
         availableBoxes={availableBoxes}

@@ -3,7 +3,8 @@ import LumonLogo from '../assets/LumonLogo.svg?react';
 import TotalProgress from './TotalProgress';
 
 type RefinementHeaderProps = {
-  totalProgress: number
+  totalProgress: number,
+  onOpenHelp: () => void
 }
 
 export default function RefinementHeader(props: RefinementHeaderProps) {
@@ -12,7 +13,7 @@ export default function RefinementHeader(props: RefinementHeaderProps) {
       <div className="refinement-header__main-progress">
         <TotalProgress progress={props.totalProgress} />
         <span className="refinement-header__project-name">Cold Harbor</span>
-        <LumonLogo />
+        <LumonLogo onClick={props.onOpenHelp} />
       </div>
     </header>
 )
