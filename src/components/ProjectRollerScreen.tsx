@@ -61,7 +61,7 @@ export default function ProjectSelect({onFinish}: ProjectSelectProps) {
       }
       count += 1
 
-      if (count >= 20) {
+      if (count >= 22) {
         setHide(true)
 
         finishTimeoutId = setTimeout(() => {
